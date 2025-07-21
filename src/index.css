@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#0f172a];
+}
+
+/* preview.css */
+
+/* Code block reset */
+[data-filename] pre {
+  margin: 0 !important;
+  background: #1e1e1e !important;
+  border-radius: 0 0 0.375rem 0.375rem;
+  border-top: none !important;
+}
+
+/* Remove top gap inside <code> */
+[data-filename] pre code {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Override highlight.js theme bg */
+.hljs {
+  background: #1e1e1e !important;
+}
