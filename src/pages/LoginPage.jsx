@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
-import useAuthStore  from '../store/useAuthStore';
-import { Eye, EyeOff, GraduationCap, Loader2, Lock, Mail, MessageSquare } from 'lucide-react';
+import React, { useState } from "react";
+import useAuthStore from "../store/useAuthStore";
+import {
+  Eye,
+  EyeOff,
+  GraduationCap,
+  Loader2,
+  Lock,
+  Mail,
+  MessageSquare,
+} from "lucide-react";
 // import AuthImagePattern from '../components/AuthImagePattern';
-import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,9 +23,11 @@ const LoginPage = () => {
   const { login, isLoggingIn } = useAuthStore();
   const validateForm = () => {
     if (!formData.email.trim()) return toast.error("Email is required");
-    if (!/\S+@\S+\.\S+/.test(formData.email)) return toast.error("Invalid email format");
+    if (!/\S+@\S+\.\S+/.test(formData.email))
+      return toast.error("Invalid email format");
     if (!formData.password) return toast.error("Password is required");
-    if (formData.password.length < 6) return toast.error("Password must be at least 6 characters");
+    if (formData.password.length < 6)
+      return toast.error("Password must be at least 6 characters");
 
     return true;
   };
@@ -25,7 +35,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const success = validateForm();
-      if(success)  login(formData);
+      if (success) login(formData);
     } catch (error) {
       console.error(error);
     }
@@ -64,7 +74,9 @@ const LoginPage = () => {
                   className={`input input-bordered w-full pl-10`}
                   placeholder="you@example.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -82,7 +94,9 @@ const LoginPage = () => {
                   className={`input input-bordered w-full pl-10`}
                   placeholder="••••••••"
                   value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
                 />
                 <button
                   type="button"
@@ -98,7 +112,11 @@ const LoginPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary w-full" disabled={isLoggingIn}>
+            <button
+              type="submit"
+              className="btn btn-primary w-full"
+              disabled={isLoggingIn}
+            >
               {isLoggingIn ? (
                 <>
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -127,8 +145,7 @@ const LoginPage = () => {
         subtitle={"Sign in to continue your conversations and catch up with your messages."}
       /> */}
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
-
+export default LoginPage;

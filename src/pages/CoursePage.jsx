@@ -122,7 +122,7 @@ const CoursePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-gray-100 mt-20">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-gray-100 mt-10">
       <div className="flex flex-col lg:flex-row max-w-8xl mx-auto min-h-screen">
         {/* Sidebar */}
         <div className="w-full lg:w-1/3 bg-black/80 backdrop-blur-sm border-r border-gray-800/50 overflow-y-auto max-h-screen sticky top-0">

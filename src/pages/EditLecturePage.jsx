@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import useCourseStore from "../store/useCourseStore";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import Preview from "../components/Preview";
+import Preview from "@/components/Preview";
 const EditLecturePage = () => {
   const location = useLocation();
   const navigate = useNavigate();

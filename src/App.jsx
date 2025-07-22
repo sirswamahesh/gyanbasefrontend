@@ -22,6 +22,7 @@ import EditLecturePage from "./pages/EditLecturePage";
 import CoursePage from "./pages/CoursePage";
 import AddLevelPage from "./pages/AddLevelPage";
 import FullLevelPage from "./pages/AddLevelPage";
+import CoursesPage from "./components/Courses/CoursesPage";
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
   const location = useLocation();
@@ -41,7 +42,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/course/:courseId" element={<CoursePage />} />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/courses/:courseId" element={<CoursePage />} />
         <Route
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to="/" />}
