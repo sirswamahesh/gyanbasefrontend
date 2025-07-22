@@ -1,10 +1,10 @@
-import { create } from "zustand"
+import { create } from "zustand";
 import { axiosInstance } from "../lib/axios";
-import { toast } from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 const useAuthStore = create((set) => ({
   authUser: null,
-  allCourses:[],
-  isUpdatingProfile:false,
+  allCourses: [],
+  isUpdatingProfile: false,
   isSigningUp: false,
   isLoggingIn: false,
   isCheckingAuth: true,
@@ -15,11 +15,11 @@ const useAuthStore = create((set) => ({
       const res = await axiosInstance.get("/auth/check");
       set({ authUser: res.data });
     } catch (error) {
-      set({ authUser: null })
+      set({ authUser: null });
     } finally {
       set({
-        isCheckingAuth: false
-      })
+        isCheckingAuth: false,
+      });
     }
   },
   login: async (data) => {
@@ -49,8 +49,10 @@ const useAuthStore = create((set) => ({
   logout: async () => {
     try {
       await axiosInstance.post("/auth/logout");
+      localStorage.clear();
       set({ authUser: null });
       toast.success("Logged out successfully");
+      window.location.href = "/login";
     } catch (error) {
       toast.error(error.response.data.message);
     }
